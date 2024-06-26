@@ -1,13 +1,14 @@
-import { Board } from "Board";
-import { Utils } from "Utils";
-import { Solver } from "./Solver";
+import { Board } from "./Board.js";
+import { Utils } from "./Utils.js";
+import { Solver } from "./Solver.js";
 
-class Generator {
+export class Generator {
     constructor() {
         this.board = new Board();
+        console.log('Generator constructor', this.board)
     }
     
-    randomize(iterations) {
+    randomize (iterations) {
         // function randomizes an existing complete puzzle
         if (this.board.getUsedCells().length == 81) {
             for (let i = 0; i < iterations; ++i) {
@@ -31,7 +32,7 @@ class Generator {
         }
     }
 
-    reduceByLogical(cutoff = 81) {
+    reduceByLogical (cutoff = 81) {
         // method gets all possible values for a particular cell, 
         // if there is only one then we can remove that cell
         let cells = this.board.getUsedCells();
@@ -78,7 +79,7 @@ class Generator {
             }
             let ambiguous = false;
             for (let j = 0; j < complement.length; ++j) {
-                usedCells[i].value = x;
+                usedCells[i].value = j;
                 let s = new Solver(tempBoard);
                 if (s.solve() && s.isValid()) {
                     usedCells[i].value = original;

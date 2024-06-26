@@ -34,7 +34,7 @@ export class Solver {
             let current = this.vacants[index];
             let flag = false;
             for (let x = current.value + 1; x < 10; ++x) {
-                if (this.board.getPossibles(current).findIndex(x) > -1) {
+                if (this.board.getPossibles(current).findIndex(e => e == x) > -1) {
                     current.value = x;
                     flag = true;
                     break;
@@ -43,7 +43,7 @@ export class Solver {
             if (!flag) {
                 current.value = 0;
                 --index;
-            } this.else {
+            } else {
                 ++index;
             }
         }

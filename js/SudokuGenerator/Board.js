@@ -1,4 +1,4 @@
-import { Cell } from "Cell";
+import { Cell } from "./Cell.js";
 
 export class Board {
     constructor() {
@@ -26,12 +26,13 @@ export class Board {
                 if (!(box in this.boxes)) {
                     this.boxes[box] = [];
                 }
-                this.rows[row].push(cell)
-                this.cols[col].push(cell)
-                this.boxes[box].push(cell)
-                this.cells.push(cell)
+                this.rows[row].push(cell);
+                this.cols[col].push(cell);
+                this.boxes[box].push(cell);
+                this.cells.push(cell);
             }
         }
+        console.log('Board constructor', this.rows)
     }
 
     getUsedCells() {
@@ -77,7 +78,7 @@ export class Board {
     getPossibles(cell) {
         // returning all possible values that could be assigned to the cell provided as argument
         let possibilities = this.rows[cell.row].concat(this.cols[cell.col], this.boxes[cell.box]);
-        possibilities = possibilities.filter(e => e.value != 0);
+        possibilities = possibilities.filter(e => e.value != 0 && e.value != cell.value);
         let results = [];
         for (let i = 1; i < 10; ++i) {
             if (possibilities.findIndex(e => e.value == i) == -1) {
@@ -106,7 +107,7 @@ export class Board {
         for (let row = 0; row < 9; ++row) {
             for (let col = 0; col < 9; ++col) {
                 let box = 3 * Math.floor(row / 3) + Math.floor(col / 3);
-                let number = this.board.rows[row][col].value;
+                let number = this.rows[row][col].value;
                 let cell = new Cell(row, col, box, number);
                 if (!(row in board.rows)) {
                     board.rows[row] = [];
@@ -117,12 +118,23 @@ export class Board {
                 if (!(box in board.boxes)) {
                     board.boxes[box] = [];
                 }
-                board.rows[row].push(cell)
-                board.cols[col].push(cell)
-                board.boxes[box].push(cell)
-                board.cells.push(cell)
+                board.rows[row].push(cell);
+                board.cols[col].push(cell);
+                board.boxes[box].push(cell);
+                board.cells.push(cell);
             }
         }
         return board;
+    }
+
+    getMatrix() {
+        let matrix = [];
+        for (let row = 0; row < 9; ++row) {
+            matrix.push([]);
+            for (let col = 0; col < 9; ++col) {
+                matrix[row].push(this.rows[row][col].value);
+            }
+        }
+        return matrix;
     }
 }
