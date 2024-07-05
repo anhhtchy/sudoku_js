@@ -208,7 +208,9 @@ background-color: rgba(0,0,0,0.04);
 	.sdk-ans-container .sdk-btn  {
 		font-size: 1.5em;
 	}
-	
+	.sdk-ans-container {
+		padding: 0 20px;
+	}
 	.sdk-col {
 		min-height:36px;
 	}
