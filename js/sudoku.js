@@ -5,12 +5,14 @@ import { Generator } from "./SudokuGenerator/Generator.js";
 		levels: [
 			{ level: "Easy" },
 			{ level: "Medium" },
-			{ level: "Hard" }
+			{ level: "Hard" },
+			{ level: "Extreme" }
 		],
 		difficulties: {
 			'Easy': [35, 0], 
 			'Medium': [81, 5], 
-			'Hard': [81, 10]
+			'Hard': [81, 10],
+			'Extreme': [81, 15]
 		}
 	};
 
@@ -37,7 +39,6 @@ import { Generator } from "./SudokuGenerator/Generator.js";
 	let generator = new Generator();
 	generator.randomize(100);
 	defaults.matrix = generator.board.getMatrix();
-
 	function createTable () {
 		//array to hold the dom reference to the table matrix so that we dont have to travers dom all the time
 		defaults.domMatrix = [];
@@ -88,7 +89,7 @@ import { Generator } from "./SudokuGenerator/Generator.js";
 				//select this 
 				defaults.domMatrix[$(this).attr("data-row")][$(this).attr("data-col")].addClass("sdk-selected");
 				defaults.selected = defaults.domMatrix[$(this).attr("data-row")][$(this).attr("data-col")];
-				defaults.selectedSolution = defaults.matrix[$(this).attr("data-row")][$(this).attr("data-col")]
+				defaults.selectedSolution = defaults.matrix[$(this).attr("data-row")][$(this).attr("data-col")];
 			} else {
 				//add helper style
 				highlightHelp(parseInt($(this).text()));
@@ -119,6 +120,7 @@ import { Generator } from "./SudokuGenerator/Generator.js";
 		answerContainer.find(".sdk-btn").click(function () {
 			//only listen to clicks if it is shown
 			if (!$(this).hasClass("sdk-no-show") && defaults.selected != null && defaults.selected.children().length == 0) {
+				console.log('answerPicker', parseInt($(this).text()), defaults.selectedSolution);
 				//check if it is the answer
 				if (defaults.selectedSolution == parseInt($(this).text())) {
 					//decrease answer tracker

@@ -6,14 +6,17 @@ export class Board {
         this.cols = {};
         this.boxes = {};
         this.cells = [];
-        
+    }
+
+    initBoard() {
         for (let row = 0; row < 9; ++row) {
             for (let col = 0; col < 9; ++col) {
                 let box = 3 * Math.floor(row / 3) + Math.floor(col / 3);
                 let number = col / 1 + 1 + (row * 3) + Math.floor(row / 3) % 3;
                 if (number > 9) { 
                     number = number % 9;
-                } else if (number == 0) {
+                } 
+                if (number == 0) {
                     number = 9;
                 }
                 let cell = new Cell(row, col, box, number);
@@ -32,7 +35,6 @@ export class Board {
                 this.cells.push(cell);
             }
         }
-        console.log('Board constructor', this.rows)
     }
 
     getUsedCells() {

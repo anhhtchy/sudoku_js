@@ -5,6 +5,7 @@ import { Solver } from "./Solver.js";
 export class Generator {
     constructor() {
         this.board = new Board();
+        this.board.initBoard();
         console.log('Generator constructor', this.board)
     }
     
