@@ -42,6 +42,7 @@ html, body {
 .sdk-table {
 	max-width: 416px;
 	margin: auto;
+	margin-bottom: 30px;
 	display: block;
   	position: relative;
   	border: #AAA solid 2px;
@@ -112,7 +113,7 @@ html, body {
 .sdk-row:nth-child(5) .sdk-col:nth-child(n+7):nth-child(-n+9),
 .sdk-row:nth-child(6) .sdk-col:nth-child(n+7):nth-child(-n+9)
  {
-background-color: rgba(0,0,0,0.04);
+	background-color: rgba(0,0,0,0.04);
 }
 
 .sdk-col.sdk-selected {
@@ -141,11 +142,22 @@ background-color: rgba(0,0,0,0.04);
 	text-align: center;
 }
 
+.sdk-user-solution {
+	font-weight: bold;
+	color: #333;
+}
+
+.sdk-new-game {
+	font-size: 18px;
+    display: block;
+    margin: 10px auto;
+    padding: 4px 15px;
+}
+
 .sdk-helper {
 	background-color: rgba(100,100,100,0.2);
 	color: #000;
 }
-    
     
 .sdk-picker {
 	max-width: 416px;
@@ -177,7 +189,7 @@ background-color: rgba(0,0,0,0.04);
 	font-size: 2em;
 	transition: background .3s ease, color .3s ease;
 	text-decoration: none;
-	margin-bottom: 5px;
+	margin-bottom: 15px;
 }
 
 .sdk-btn:hover{
@@ -188,14 +200,31 @@ background-color: rgba(0,0,0,0.04);
 	max-width: 416px;
 	margin: auto;
 	margin-top: 10px;
-	display: block;
   	position: relative;
+}
+
+.sdk-ans-container-row {
+	display: flex;
+	justify-content: space-evenly;
 }
 
 .sdk-ans-container .sdk-btn {
 	display:inline-block;
 	width: 11.11%;
 	padding: 5px;
+}
+
+.sdk-congratulation-container {
+	font-size: 18px;
+    display: flex;
+    justify-content: center;
+}
+
+.sdk-time-info-container {
+	font-size: 18px;
+    display: flex;
+    justify-content: space-between;
+	margin-bottom: 5px;
 }
 
 .sdk-no-show {
