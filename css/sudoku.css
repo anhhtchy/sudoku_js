@@ -74,7 +74,7 @@ html, body {
 
 .sdk-col {
 	width: 11.11%;
-	min-height:45px;
+	min-height: 46px;
 	position: relative;
   	float: left;
   	border-color: #CCC;
@@ -98,6 +98,7 @@ html, body {
 .sdk-table .sdk-row:nth-child(4) .sdk-col, 
 .sdk-table .sdk-row:nth-child(7) .sdk-col {
 	border-top: none;
+	min-height: 44px;
 }
 
 .sdk-row:first-child .sdk-col:nth-child(n+4):nth-child(-n+6),
@@ -221,6 +222,8 @@ html, body {
 }
 
 .sdk-time-info-container {
+	max-width: 416px;
+	margin: auto;
 	font-size: 18px;
     display: flex;
     justify-content: space-between;
@@ -241,6 +244,11 @@ html, body {
 		padding: 0 20px;
 	}
 	.sdk-col {
-		min-height:36px;
+		min-height: 37px;
+	}
+	.sdk-table .sdk-row:first-child .sdk-col, 
+	.sdk-table .sdk-row:nth-child(4) .sdk-col, 
+	.sdk-table .sdk-row:nth-child(7) .sdk-col {
+		min-height: 35px;
 	}
 }
