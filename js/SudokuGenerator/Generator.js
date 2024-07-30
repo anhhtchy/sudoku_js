@@ -10,11 +10,10 @@ export class Generator {
     }
     
     randomize (iterations) {
-        // function randomizes an existing complete puzzle
         if (this.board.getUsedCells().length == 81) {
             for (let i = 0; i < iterations; ++i) {
                 let swapType = Math.floor(Math.random() * 4);
-                let block = Math.floor(Math.random() * 2) * 3;
+                let block = Math.floor(Math.random() * 3) * 3;
                 let piece1 = Math.floor(Math.random() * 3);
                 let piece2 = Math.floor(Math.random() * 3);
                 while(piece1 === piece2) {
